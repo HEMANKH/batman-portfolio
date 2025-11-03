@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const roles = [
   "AI Engineer",
   "Data Scientist",
-  "Full‑Stack Developer",
+  "Full-Stack Developer",
   "Machine Learning Engineer",
   "Problem Solver",
   "Tech Innovator"
@@ -41,17 +41,24 @@ const Home = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden pb-32">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
-        style={{ backgroundImage: `url(${batmanHero})` }}
+      {/* 🎥 Video Background */}
+      <video
+        src={batmanHero}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
       />
 
+      {/* Optional glow or gradient overlays */}
       <div className="absolute top-[10%] right-[20%] w-64 h-64 animate-signal-pulse pointer-events-none">
         <div className="w-full h-full bg-secondary/30 rounded-full blur-[80px]" />
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
 
+      {/* Content */}
       <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-start md:justify-center">
         <div className="max-w-4xl space-y-8 animate-fade-in">
           <div className="space-y-6">
@@ -86,6 +93,7 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Floating Glow Effects */}
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
           <div
             className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-pulse"
