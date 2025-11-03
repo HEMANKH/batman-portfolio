@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Gotham Dark Theme - Batman Inspired */
+    --background: 210 50% 4%;
+    --foreground: 180 100% 95%;
+
+    --card: 210 40% 8%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 210 45% 6%;
+    --popover-foreground: 180 100% 95%;
+
+    --primary: 45 100% 51%;
+    --primary-foreground: 210 50% 4%;
+
+    --secondary: 195 100% 45%;
+    --secondary-foreground: 210 50% 4%;
+
+    --muted: 210 40% 15%;
+    --muted-foreground: 180 20% 65%;
+
+    --accent: 195 100% 50%;
+    --accent-foreground: 210 50% 4%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 40% 20%;
+    --input: 210 40% 15%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Holographic effects */
+    --hologram-cyan: 195 100% 50%;
+    --hologram-blue: 220 100% 60%;
+    --hologram-gold: 45 100% 51%;
+    
+    /* Gradients */
+    --gradient-hologram: linear-gradient(135deg, hsl(var(--hologram-cyan)), hsl(var(--hologram-blue)));
+    --gradient-dark: linear-gradient(180deg, hsl(210 50% 4%), hsl(210 50% 2%));
+    
+    /* Shadows and glows */
+    --glow-cyan: 0 0 30px hsl(var(--hologram-cyan) / 0.5);
+    --glow-gold: 0 0 30px hsl(var(--hologram-gold) / 0.4);
+    --shadow-deep: 0 20px 50px -10px hsl(0 0% 0% / 0.8);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: linear-gradient(180deg, hsl(210 50% 4%), hsl(210 50% 2%));
+    min-height: 100vh;
+  }
+
+  /* Holographic effect utilities */
+  .hologram-text {
+    background: linear-gradient(135deg, hsl(var(--hologram-cyan)), hsl(var(--hologram-blue)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hologram-border {
+    border: 2px solid transparent;
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(135deg, hsl(var(--hologram-cyan)), hsl(var(--hologram-blue))) border-box;
+  }
+
+  .glass-card {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.3);
+  }
+}
