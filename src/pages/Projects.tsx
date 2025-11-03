@@ -1,32 +1,32 @@
 import { ExternalLink, Github } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "Bat-Signal Alert System",
-    description: "Real-time notification system for critical alerts with custom webhook integrations",
-    tech: ["React", "Node.js", "WebSocket", "MongoDB"],
+    title: "Watch Wave",
+    description:
+      "A sleek platform for discovering, reviewing, and tracking your favorite movies and TV shows.",
+    tech: ["React", "TailwindCSS", "TMDB API", "Firebase"],
     status: "Active",
+    demo: "https://watchwave-delta.vercel.app/home.html",
+    github: "https://github.com/hemankh",
   },
   {
-    title: "Gotham Crime Analytics",
-    description: "Advanced data visualization platform for crime pattern analysis and prediction",
-    tech: ["Python", "D3.js", "TensorFlow", "PostgreSQL"],
+    title: "Movie List",
+    description:
+      "A simple yet powerful app for managing and sharing your personalized movie watchlist.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Vercel"],
     status: "Completed",
-  },
-  {
-    title: "Wayne Enterprises Dashboard",
-    description: "Enterprise resource planning system with real-time financial tracking",
-    tech: ["Vue.js", "Express", "Redis", "Docker"],
-    status: "Active",
-  },
-  {
-    title: "Batcave Security System",
-    description: "Multi-layer authentication and surveillance monitoring platform",
-    tech: ["TypeScript", "NestJS", "GraphQL", "Kubernetes"],
-    status: "Active",
+    demo: "https://movies-interface-pink.vercel.app/netflix.html",
+    github: "https://github.com/hemankh",
   },
 ];
 
@@ -34,15 +34,17 @@ const Projects = () => {
   return (
     <div className="min-h-screen py-20 px-4">
       <div className="container mx-auto max-w-6xl">
+        {/* Header Section */}
         <div className="mb-16 text-center animate-fade-in">
           <h1 className="text-6xl font-['Orbitron'] font-black mb-4">
             <span className="hologram-text">MISSION</span> ARCHIVES
           </h1>
           <p className="text-xl font-['Rajdhani'] text-muted-foreground max-w-2xl mx-auto">
-            Every mission is documented. Every villain defeated. Every challenge conquered.
+            A collection of my cinematic and creative projects — crafted with precision and passion.
           </p>
         </div>
 
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <Card
@@ -55,7 +57,10 @@ const Projects = () => {
                   <CardTitle className="font-['Orbitron'] text-2xl hologram-text">
                     {project.title}
                   </CardTitle>
-                  <Badge variant={project.status === "Active" ? "default" : "secondary"} className="font-['Rajdhani']">
+                  <Badge
+                    variant={project.status === "Active" ? "default" : "secondary"}
+                    className="font-['Rajdhani']"
+                  >
                     {project.status}
                   </Badge>
                 </div>
@@ -63,7 +68,9 @@ const Projects = () => {
                   {project.description}
                 </CardDescription>
               </CardHeader>
+
               <CardContent className="space-y-4">
+                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <Badge key={tech} variant="outline" className="font-['Rajdhani'] text-xs">
@@ -71,14 +78,39 @@ const Projects = () => {
                     </Badge>
                   ))}
                 </div>
+
+                {/* Buttons */}
                 <div className="flex gap-3">
-                  <Button variant="default" size="sm" className="font-['Rajdhani']">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    View Project
+                  <Button
+                    asChild
+                    variant="default"
+                    size="sm"
+                    className="font-['Rajdhani']"
+                  >
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Demo
+                    </a>
                   </Button>
-                  <Button variant="outline" size="sm" className="font-['Rajdhani']">
-                    <Github className="w-4 h-4 mr-2" />
-                    Source
+
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="font-['Rajdhani']"
+                  >
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      GitHub
+                    </a>
                   </Button>
                 </div>
               </CardContent>
