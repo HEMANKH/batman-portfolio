@@ -9,7 +9,7 @@ const roles = [
   "Full-Stack Developer",
   "Machine Learning Engineer",
   "Problem Solver",
-  "Tech Innovator"
+  "Tech Innovator",
 ];
 
 const Home = () => {
@@ -58,7 +58,7 @@ const Home = () => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
 
-      {/* Content */}
+      {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-start md:justify-center">
         <div className="max-w-4xl space-y-8 animate-fade-in">
           <div className="space-y-6">
@@ -73,6 +73,7 @@ const Home = () => {
               <span className="border-r-2 border-primary ml-1 animate-pulse"></span>
             </p>
 
+            {/* Intro Text */}
             <div className="space-y-4 text-lg md:text-xl font-['Rajdhani'] text-muted-foreground max-w-3xl leading-relaxed">
               <p className="hologram-text">I'm passionate about turning data into insights...</p>
               <p>Crafting models that make a difference!</p>
@@ -81,43 +82,29 @@ const Home = () => {
               <p className="text-primary font-semibold">And I'm the Night coder</p>
               <p>Focused on delivering optimal solutions.</p>
             </div>
-            <a href="/Hemankh_resume.pdf" download>
+
+            {/* Resume Download Button */}
             <div className="pt-8">
-              <Button
-                size="lg"
-                className="font-['Rajdhani'] font-semibold glass-card hologram-border hover:scale-105 transition-transform"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
-              </Button>
-            </div>
+              <a href="/Hemankh_resume.pdf" download>
+                <Button
+                  size="lg"
+                  className="font-['Rajdhani'] font-semibold glass-card hologram-border hover:scale-105 transition-transform"
+                >
+                  <Download className="w-5 h-5 mr-2" />
+                  Download Resume
+                </Button>
               </a>
-          </div>
-          {/*<a href="/siddardha_resume.pdf" download>
-                  <Button
-                    size="lg"
-                    className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300"
-                  >
-                    <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                    Download Resume
-                  </Button>
-                </a>
-              </div>
-
-              {/* Right side - Additional visual space */}
-              <div className="hidden lg:block" />
             </div>
           </div>
-        </div>*/}
-
-          {/* Floating Glow Effects */}
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
-          <div
-            className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-pulse"
-            style={{ animationDelay: "1s" }}
-          />
         </div>
       </div>
+
+      {/* Floating Glow Effects */}
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
+      <div
+        className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-pulse"
+        style={{ animationDelay: "1s" }}
+      />
     </div>
   );
 };
