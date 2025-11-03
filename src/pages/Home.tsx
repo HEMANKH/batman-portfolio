@@ -1,25 +1,57 @@
 import batmanHero from "@/assets/batman-signal-right.jpg";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const roles = [
+  "AI Engineer",
+  "Data Scientist",
+  "Full‑Stack Developer",
+  "Machine Learning Engineer",
+  "Problem Solver",
+  "Tech Innovator"
+];
 
 const Home = () => {
+  const [text, setText] = useState(roles[0]);
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const fullText = roles[index];
+
+      if (!deleting && subIndex < fullText.length) {
+        setSubIndex(subIndex + 1);
+      } else if (deleting && subIndex > 0) {
+        setSubIndex(subIndex - 1);
+      } else if (!deleting && subIndex === fullText.length) {
+        setDeleting(true);
+      } else if (deleting && subIndex === 0) {
+        setDeleting(false);
+        setIndex((index + 1) % roles.length);
+      }
+
+      setText(fullText.substring(0, subIndex));
+    }, deleting ? 80 : 120);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, deleting]);
+
   return (
     <div className="min-h-screen relative overflow-hidden pb-32">
-      {/* Batman Background with Bat-Signal from bottom right */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
         style={{ backgroundImage: `url(${batmanHero})` }}
       />
-      
-      {/* Bat-Signal pulsing on/off in the sky - top right */}
+
       <div className="absolute top-[10%] right-[20%] w-64 h-64 animate-signal-pulse pointer-events-none">
         <div className="w-full h-full bg-secondary/30 rounded-full blur-[80px]" />
       </div>
-      
-      {/* Gradient overlay */}
+
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
-      
-      {/* Content */}
+
       <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-start md:justify-center">
         <div className="max-w-4xl space-y-8 animate-fade-in">
           <div className="space-y-6">
@@ -27,9 +59,11 @@ const Home = () => {
               <span className="text-white">Hi, I'm </span>
               <span className="hologram-text">Gadigatla Hemankh</span>
             </h2>
-            
-            <p className="text-2xl md:text-3xl font-['Rajdhani'] font-bold text-primary">
-              AI Engineer
+
+            {/* Typing Effect Role */}
+            <p className="text-2xl md:text-3xl font-['Rajdhani'] font-bold text-primary h-10">
+              {text}
+              <span className="border-r-2 border-primary ml-1 animate-pulse"></span>
             </p>
 
             <div className="space-y-4 text-lg md:text-xl font-['Rajdhani'] text-muted-foreground max-w-3xl leading-relaxed">
@@ -42,8 +76,8 @@ const Home = () => {
             </div>
 
             <div className="pt-8">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="font-['Rajdhani'] font-semibold glass-card hologram-border hover:scale-105 transition-transform"
               >
                 <Download className="w-5 h-5 mr-2" />
@@ -52,9 +86,11 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Decorative glow effects */}
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+          <div
+            className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-pulse"
+            style={{ animationDelay: "1s" }}
+          />
         </div>
       </div>
     </div>
