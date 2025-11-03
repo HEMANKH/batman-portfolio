@@ -61,13 +61,13 @@ const Contact = () => {
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 0000000000",
+      value: "+91 8328389834",
       href: "tel:+918328389834",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Tanku",
+      value: "Tanuku",
       href: "#",
     },
   ];
