@@ -81,7 +81,7 @@ const Home = () => {
               <p className="text-primary font-semibold">And I'm the Night coder</p>
               <p>Focused on delivering optimal solutions.</p>
             </div>
-
+            <a href="/Hemankh_resume.pdf" download>
             <div className="pt-8">
               <Button
                 size="lg"
@@ -91,7 +91,24 @@ const Home = () => {
                 Download Resume
               </Button>
             </div>
+              </a>
           </div>
+          {/*<a href="/siddardha_resume.pdf" download>
+                  <Button
+                    size="lg"
+                    className="group bg-primary hover:bg-accent text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-[0_0_30px_hsl(120_100%_50%/0.4)] transition-all duration-300"
+                  >
+                    <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+                    Download Resume
+                  </Button>
+                </a>
+              </div>
+
+              {/* Right side - Additional visual space */}
+              <div className="hidden lg:block" />
+            </div>
+          </div>
+        </div>*/}
 
           {/* Floating Glow Effects */}
           <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
