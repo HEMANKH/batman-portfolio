@@ -1,103 +1,82 @@
 import { Award, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+// 🔗 Add file paths for each certificate (PDFs in /public/certificates)
 const certificates = [
   {
-    title: "Advanced Combat Training",
-    issuer: "League of Shadows",
+    title: "AI Advance",
+    issuer: "Hexart.in",
+    date: "2024",
+    verified: true,
+    file: "/AI_Advance-G.Hemankh.pdf",
+  },
+  {
+    title: "AI Foundation",
+    issuer: "Hexart.in",
+    date: "2024",
+    verified: true,
+    file: "/AI_Foundation-G.Hemankh.pdf",
+  },
+  {
+    title: "ChatGPT/Generative AI",
+    issuer: "International Institute of Digital Technologies",
+    date: "2024",
+   
+    file: "/CHAT-GPT.pdf",
+  },
+  {
+    title: "ML-CONNECT",
+    issuer: "SAGI RAMA KRISHNAM RAJU ENGINEERING COLLEGE",
     date: "2023",
-    description:
-      "Master-level certification in advanced coding techniques and system architecture.",
+   
     verified: true,
+    file: "/G.HEMANKH (1).pdf",
   },
   {
-    title: "Forensic Technology Specialist",
-    issuer: "Gotham Police Academy",
+    title: " Java Full Stack Development",
+    issuer: "BlackBucks",
+    date: "2024",
+   
+    verified: true,
+    file: "/Gadigatla Hemankh.pdf",
+  },
+  {
+    title: "GROWTHXPO",
+    issuer: "SAGI RAMA KRISHNAM RAJU ENGINEERING COLLEGE",
     date: "2023",
-    description:
-      "Expert-level certification in cybersecurity and digital forensics.",
+    
     verified: true,
+    file: "/GROWTHXPO.pdf",
   },
   {
-    title: "Wayne Enterprises Innovation Award",
-    issuer: "Wayne Tech Division",
-    date: "2022",
-    description:
-      "Recognition for outstanding contribution to enterprise technology solutions.",
+    title: "Python",
+    issuer: "Kaggle",
+    date: "2024",
+   
     verified: true,
+    file: "/kagele1.pdf",
   },
   {
-    title: "Cloud Architecture Excellence",
-    issuer: "Tech Guild of Gotham",
-    date: "2022",
-    description:
-      "Advanced certification in cloud infrastructure, microservices, and scalable systems.",
+    title: "Intro to Programming",
+    issuer: "Kaggle",
+    date: "2024",
     verified: true,
+    file: "/kagele3pdf",
   },
   {
-    title: "AI & Machine Learning Mastery",
-    issuer: "Bat-Computer Institute",
-    date: "2021",
-    description:
-      "Comprehensive training in artificial intelligence, deep learning, and predictive algorithms.",
+    title: "intro to Machine learning",
+    issuer: "Kaggle",
+    date: "2024",
+    
     verified: true,
-  },
-  {
-    title: "Full-Stack Web Development Professional",
-    issuer: "Gotham Tech Academy",
-    date: "2021",
-    description:
-      "Expertise in modern web frameworks like React, Node.js, and Next.js.",
-    verified: true,
-  },
-  {
-    title: "Data Science & Analytics Certification",
-    issuer: "Oracle of Delphi Data Labs",
-    date: "2020",
-    description:
-      "Advanced proficiency in data analysis, visualization, and machine learning workflows.",
-    verified: true,
-  },
-  {
-    title: "Cyber Defense Specialist",
-    issuer: "National Cybersecurity Directorate",
-    date: "2020",
-    description:
-      "Certified in digital threat analysis, penetration testing, and ethical hacking practices.",
-    verified: true,
-  },
-  {
-    title: "Quantum Computing Fundamentals",
-    issuer: "Wayne Research Institute",
-    date: "2019",
-    description:
-      "Research-based certification exploring qubits, entanglement, and quantum algorithms.",
-    verified: true,
-  },
-  {
-    title: "Blockchain Architecture Expert",
-    issuer: "Gotham FinTech Council",
-    date: "2019",
-    description:
-      "Certified in distributed ledger design, smart contract development, and Web3 integration.",
-    verified: true,
-  },
-  {
-    title: "DevOps Automation Specialist",
-    issuer: "Stark Industries Labs (Joint Program)",
-    date: "2018",
-    description:
-      "Mastery in CI/CD pipelines, container orchestration, and automated cloud deployment.",
-    verified: true,
-  },
-  {
-    title: "Augmented Reality System Design",
-    issuer: "Lucius Fox Innovation Center",
-    date: "2018",
-    description:
-      "Cutting-edge AR/VR certification focusing on immersive interfaces and real-time 3D systems.",
-    verified: true,
+    file: "/kagele2.pdf",
   },
 ];
 
@@ -119,54 +98,64 @@ const Certificates = () => {
         {/* Certificates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {certificates.map((cert, index) => (
-            <Card
+            <a
               key={index}
-              className="glass-card hologram-border hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all duration-300 animate-fade-in group"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              href={cert.file}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex items-start gap-3">
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Award className="w-6 h-6 text-primary" />
+              <Card
+                className="glass-card hologram-border hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all duration-300 animate-fade-in group hover:scale-[1.02]"
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start gap-3">
+                      <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                        <Award className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <CardTitle className="font-['Orbitron'] text-xl hologram-text mb-2">
+                          {cert.title}
+                        </CardTitle>
+                        <CardDescription className="font-['Rajdhani'] text-sm">
+                          {cert.issuer} • {cert.date}
+                        </CardDescription>
+                      </div>
                     </div>
-                    <div>
-                      <CardTitle className="font-['Orbitron'] text-xl hologram-text mb-2">
-                        {cert.title}
-                      </CardTitle>
-                      <CardDescription className="font-['Rajdhani'] text-sm">
-                        {cert.issuer} • {cert.date}
-                      </CardDescription>
-                    </div>
+                    {cert.verified && (
+                      <Badge
+                        variant="default"
+                        className="font-['Rajdhani'] gap-1"
+                      >
+                        <CheckCircle2 className="w-3 h-3" />
+                        Verified
+                      </Badge>
+                    )}
                   </div>
-                  {cert.verified && (
-                    <Badge variant="default" className="font-['Rajdhani'] gap-1">
-                      <CheckCircle2 className="w-3 h-3" />
-                      Verified
-                    </Badge>
-                  )}
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="font-['Rajdhani'] text-muted-foreground">
-                  {cert.description}
-                </p>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent>
+                  <p className="font-['Rajdhani'] text-muted-foreground">
+                    {cert.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
 
         {/* Achievement Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="glass-card hologram-border p-8 text-center animate-float">
-            <div className="text-5xl font-['Orbitron'] font-bold hologram-text mb-2">12+</div>
-            <div className="font-['Rajdhani'] text-muted-foreground">Certifications</div>
+            <div className="text-5xl font-['Orbitron'] font-bold hologram-text mb-2">9</div>
+            <div className="font-['Rajdhani'] text-muted-foreground">Certificates</div>
           </div>
           <div
             className="glass-card hologram-border p-8 text-center animate-float"
             style={{ animationDelay: "0.2s" }}
           >
-            <div className="text-5xl font-['Orbitron'] font-bold text-primary mb-2">8</div>
+            <div className="text-5xl font-['Orbitron'] font-bold text-primary mb-2">5</div>
             <div className="font-['Rajdhani'] text-muted-foreground">Awards</div>
           </div>
           <div
