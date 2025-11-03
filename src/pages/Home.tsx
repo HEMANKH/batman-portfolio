@@ -78,7 +78,7 @@ const Home = () => {
               <p>Crafting models that make a difference!</p>
               <p>Exploring data science to unlock hidden patterns.</p>
               <p>Building web apps that are both functional and fun! ✵</p>
-              <p className="text-primary font-semibold">And I'm the universal coder</p>
+              <p className="text-primary font-semibold">And I'm the Night coder</p>
               <p>Focused on delivering optimal solutions.</p>
             </div>
 
