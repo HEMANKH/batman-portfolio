@@ -41,41 +41,37 @@ const Home = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden pb-32">
-      {/* 🎥 Video Background */}
+      {/* 🎥 Video Background (fully visible now) */}
       <video
         src={batmanHero}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Optional glow or gradient overlays */}
-      <div className="absolute top-[10%] right-[20%] w-64 h-64 animate-signal-pulse pointer-events-none">
-        <div className="w-full h-full bg-secondary/30 rounded-full blur-[80px]" />
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+      {/* Removed heavy gradient/blur overlays */}
+      {/* Optionally keep a light overlay for text readability */}
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-start md:justify-center">
         <div className="max-w-4xl space-y-8 animate-fade-in">
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-['Orbitron'] font-bold">
-              <span className="text-white">Hi, I'm </span>
-              <span className="hologram-text">Gadigatla Hemankh</span>
+            <h2 className="text-4xl md:text-5xl font-['Orbitron'] font-bold text-white drop-shadow-lg">
+              Hi, I'm <span className="text-primary">Gadigatla Hemankh</span>
             </h2>
 
             {/* Typing Effect Role */}
-            <p className="text-2xl md:text-3xl font-['Rajdhani'] font-bold text-primary h-10">
+            <p className="text-2xl md:text-3xl font-['Rajdhani'] font-bold text-primary h-10 drop-shadow-lg">
               {text}
               <span className="border-r-2 border-primary ml-1 animate-pulse"></span>
             </p>
 
             {/* Intro Text */}
-            <div className="space-y-4 text-lg md:text-xl font-['Rajdhani'] text-muted-foreground max-w-3xl leading-relaxed">
-              <p className="hologram-text">I'm passionate about turning data into insights...</p>
+            <div className="space-y-4 text-lg md:text-xl font-['Rajdhani'] text-white max-w-3xl leading-relaxed drop-shadow-lg">
+              <p>I'm passionate about turning data into insights...</p>
               <p>Crafting models that make a difference!</p>
               <p>Exploring data science to unlock hidden patterns.</p>
               <p>Building web apps that are both functional and fun! ✵</p>
@@ -88,7 +84,7 @@ const Home = () => {
               <a href="/Hemankh_resume.pdf" download>
                 <Button
                   size="lg"
-                  className="font-['Rajdhani'] font-semibold glass-card hologram-border hover:scale-105 transition-transform"
+                  className="font-['Rajdhani'] font-semibold glass-card hover:scale-105 transition-transform"
                 >
                   <Download className="w-5 h-5 mr-2" />
                   Download Resume
@@ -98,13 +94,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating Glow Effects */}
-      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[100px] animate-pulse" />
-      <div
-        className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-[100px] animate-pulse"
-        style={{ animationDelay: "1s" }}
-      />
     </div>
   );
 };
