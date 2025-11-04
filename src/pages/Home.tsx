@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden pb-32">
-      {/* 🎥 Video Background (fully visible now) */}
+      {/* 🎥 Visible Video Background */}
       <video
         src={batmanHero}
         autoPlay
@@ -51,31 +51,36 @@ const Home = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Removed heavy gradient/blur overlays */}
-      {/* Optionally keep a light overlay for text readability */}
+      {/* Optional light overlay for readability */}
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 min-h-screen flex items-center justify-start md:justify-center">
         <div className="max-w-4xl space-y-8 animate-fade-in">
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-['Orbitron'] font-bold text-white drop-shadow-lg">
-              Hi, I'm <span className="text-primary">Gadigatla Hemankh</span>
+            {/* ✨ Heading with outline + shadow */}
+            <h2 className="text-4xl md:text-5xl font-['Orbitron'] font-bold text-white drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] [text-stroke:1px_black]">
+              Hi, I'm{" "}
+              <span className="text-primary [text-stroke:1px_white] drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
+                Gadigatla Hemankh
+              </span>
             </h2>
 
             {/* Typing Effect Role */}
-            <p className="text-2xl md:text-3xl font-['Rajdhani'] font-bold text-primary h-10 drop-shadow-lg">
+            <p className="text-2xl md:text-3xl font-['Rajdhani'] font-bold text-primary h-10 [text-stroke:1px_black] drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">
               {text}
               <span className="border-r-2 border-primary ml-1 animate-pulse"></span>
             </p>
 
             {/* Intro Text */}
-            <div className="space-y-4 text-lg md:text-xl font-['Rajdhani'] text-white max-w-3xl leading-relaxed drop-shadow-lg">
+            <div className="space-y-4 text-lg md:text-xl font-['Rajdhani'] text-white max-w-3xl leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] [text-stroke:0.5px_black]">
               <p>I'm passionate about turning data into insights...</p>
               <p>Crafting models that make a difference!</p>
               <p>Exploring data science to unlock hidden patterns.</p>
               <p>Building web apps that are both functional and fun! ✵</p>
-              <p className="text-primary font-semibold">And I'm the Night coder</p>
+              <p className="text-primary font-semibold [text-stroke:0.5px_black]">
+                And I'm the Night coder
+              </p>
               <p>Focused on delivering optimal solutions.</p>
             </div>
 
